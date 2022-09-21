@@ -1,4 +1,5 @@
-import "../components/todo.css";
+import Item from "../Item/Item";
+import "./todo.css";
 
 const Todo = (props) => {
   
@@ -6,37 +7,39 @@ const Todo = (props) => {
         {
             name: "Eten",
             done: false,
+            id: 1
         },
         {
             name: "Drinken",
-            done: true,
+            done: false,
+            id: 2
         },
         {
             name: "Kat uitlaten",
             done: false,
+            id: 3
         },
         {
             name: "Werk",
             done: false,
+            id: 4
         },
         {
             name: "Ademen",
             done: false,
+            id: 5
         },
         {
             name: "Praten",
             done: false,
+            id: 6
         },
         
     ];
 
     let listItems = tasks.map ( task => {
-        if(task.done === true) {
-            return <li className="todo__item todo__item--done">{task.name}</li>;
-        }
-        return <li className="todo__item">{task.name}</li>
+       return <Item key={task.id} name={task.name} done={task.done}/>
     });
-    console.log(listItems);
 
     return (
         <article className="todo">
