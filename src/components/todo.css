@@ -1,0 +1,44 @@
+.todo {
+    background-color: #EEEEEE;
+    width: 40rem;
+    box-shadow: -0 1rem 2rem 0 rgba(0, 0, 0, 0.5);
+    border-radius:0.41rem;
+    min-height: 60rem;
+}
+
+.todo__header {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
+    align-items: center;
+}
+
+.todo__heading {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 140%;
+    font-weight: 400;
+}   
+
+.todo__list {
+    height: 80%;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    flex-direction: column;
+    padding:2rem;
+}
+
+.todo__item {
+    list-style: none;
+    padding: 2rem;
+    border-bottom: 0.4rem solid rgba(0, 0, 0, 0.2);
+}
+
+.todo__item:hover {
+    background: #bababa;
+    cursor: pointer;
+}
+
+.todo__item--done {
+    text-decoration: line-through;
+}
