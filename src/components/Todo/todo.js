@@ -10,6 +10,7 @@ class Todo extends React.Component {
         this.state = {
             tasks: [],
         }
+        this.update = this.update.bind(this);
     }
 
     // ComponentDidMount runt na het aanmaken en tekenen van een component
@@ -24,14 +25,28 @@ class Todo extends React.Component {
         console.log("Vanuit de update");
     }
 
+    update = () => {
+        console.log("ik ben geklikt");
+       this.setState({
+            tasks: this.state.tasks.push(
+                {
+                    name: "Vanuit update",
+                    done: false,
+                    id: 10
+                },
+            ),
+       });
+    }
+
     render(){
 
-        let items =  this.state.tasks.map(task => {
+        console.log(this.state.tasks);
+        let items = this.state.tasks.map(task => {
             return <Item name={task.name} key={task.id}></Item>
         });
 
         return (
-            <article onClick={() => {this.state.tasks.push(1)}} className="todo">
+            <article onClick={this.update} className="todo">
                 <header className="todo__header">
                     <h1 className="todo__heading">Things to do:</h1>
                 </header>
