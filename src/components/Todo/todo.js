@@ -1,6 +1,7 @@
 import React from "react";
 import Item from "../Item/Item";
 import "./todo.css";
+import tasksObject from "../../Data/tasks";
 
 class Todo extends React.Component {
   
@@ -10,33 +11,32 @@ class Todo extends React.Component {
             tasks: [],
         }
     }
-    
-    /*
-    listItems = this.state.tasks.map ( task => {
-       return <Item key={task.id} name={task.name} done={task.done}/>
-    }); */
 
     // ComponentDidMount runt na het aanmaken en tekenen van een component
     componentDidMount() {
         this.setState ({
-            tasks: this.state.tasks.push(2),
+            tasks: tasksObject.tasks,
         });
     }
 
     // ComponentDidUpdate runt na het updaten van de state
     componentDidUpdate() {
-
+        console.log("Vanuit de update");
     }
 
     render(){
-        console.log("Vanuit de render");
+
+        let items =  this.state.tasks.map(task => {
+            return <Item name={task.name} key={task.id}></Item>
+        });
+
         return (
-            <article className="todo">
+            <article onClick={() => {this.state.tasks.push(1)}} className="todo">
                 <header className="todo__header">
                     <h1 className="todo__heading">Things to do:</h1>
                 </header>
                 <ul className="todo__list">
-                    {this.listItems}
+                    {items}
                 </ul>
             </article>
         );
